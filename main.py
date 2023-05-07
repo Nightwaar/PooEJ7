@@ -21,7 +21,7 @@ if __name__ == '__main__' :
             print("La cantidad de millas es: {}".format(listaviajeros[numviaj].accion1()))
         elif opc == 2:
             millas= int(input("Ingrese cantidad de millas a acumular")) 
-            listaviajeros[numviaj]+=millas
+            listaviajeros[numviaj]=millas+listaviajeros[numviaj]
             print(listaviajeros[numviaj].mostrarmil())
         elif opc == 3:
             millasACanjear = int(input("Ingrese la cantidad de millas a canjear "))

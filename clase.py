@@ -10,11 +10,11 @@ class Viajero:
         self.__nombre = nombre 
         self.__apellido = apellido 
         self.__millasacumuladas = int(millasacumuladas) 
-    def __add__(self,otro):
-        self.__millasacumuladas += otro
-        return self
-    def __sub__(self,otro):
-        self.__millasacumuladas -=otro
+    def __radd__(self,otro):
+        otro += self.__millasacumuladas
+        return otro
+    def __rsub__(self,otro):
+        self.__millasacumuladas =otro - self.__millasacumuladas
         return self
     def __gt__(self,otro):
         return self.__millasacumuladas >otro.accion1()
@@ -24,7 +24,7 @@ class Viajero:
         return self.__millasacumuladas
     def accion3(self,millascanjear):
         if millascanjear <= self.__millasacumuladas:
-            self.__millasacumuladas -= millascanjear
+            self.__millasacumuladas = millascanjear - self.__millasacumuladas
             print('Millas canjeadas')
         else: 
             print('No se puede canjear')
