@@ -11,10 +11,10 @@ class Viajero:
         self.__apellido = apellido 
         self.__millasacumuladas = int(millasacumuladas) 
     def __radd__(self,otro):
-        otro += self.__millasacumuladas
+        self.__millasacumuladas += otro
         return otro
     def __rsub__(self,otro):
-        self.__millasacumuladas =otro - self.__millasacumuladas
+        self.__millasacumuladas -=otro
         return self
     def __gt__(self,otro):
         return self.__millasacumuladas >otro.accion1()
